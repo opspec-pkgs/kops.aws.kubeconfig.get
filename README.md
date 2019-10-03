@@ -30,12 +30,11 @@ opctl run github.com/opspec-pkgs/kops.kubeconfig.get#1.0.0
 op:
   ref: github.com/opspec-pkgs/kops.kubeconfig.get#1.0.0
   inputs:
-    # required
-    name:
     AWS_ACCESS_KEY_ID:
     AWS_SECRET_ACCESS_KEY:
     kopsStateStore:
-    # optional
+    name:
+    # params w/ default
     region:
   outputs:
     kubeConfig:

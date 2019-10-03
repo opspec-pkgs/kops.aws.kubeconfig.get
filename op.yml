@@ -32,13 +32,14 @@ run:
       - -ce
       - |
         kops export kubecfg $(name)
-        cat /root/.kube/config > /output-config
+        cat /root/.kube/config > /kubeConfig
     files:
         /cmd.sh:
         /kubeConfig: $(kubeConfig)
-        /root/.aws/config: "[default]\nregion = "$(region)
+        /root/.aws/config: |
+          [default]\nregion = $(region)
     envVars:
       name:
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
-      kopsStateStore:
+      KOPS_STATE_STORE: $(kopsStateStore)
