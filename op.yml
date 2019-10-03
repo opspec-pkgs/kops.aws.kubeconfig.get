@@ -1,0 +1,44 @@
+name: github.com/opspec-pkgs/kops.kubeconfig.get
+description: retrieve a kubeconfig for a kubernetes cluster managed by kops
+inputs:
+  name:
+    string:
+      description: The name of kubernetes cluster to log into.
+  region:
+    string:
+      description: The aws region you would like to log into to access the s3 bucket
+      default: us-west-2
+  AWS_ACCESS_KEY_ID:
+    string:
+      description: The aws access key id to access kops state store s3 bucket.
+      isSecret: true
+  AWS_SECRET_ACCESS_KEY:
+    string:
+      description: The aws access key secret to access kops state store s3 bucket.
+      isSecret: true
+  kopsStateStore:
+    string:
+      description: The kops state store s3 bucket address (ex. s3://my-kops-state-store).
+outputs:
+  kubeConfig:
+    file:
+      description: kubeconfig file with logged-in cluster details
+version: 1.0.0
+run:
+  container:
+    image: { ref: 'opspecpkgs/kops.kubeconfig.get:1.0.0' }
+    cmd:
+      - sh
+      - -ce
+      - |
+        kops export kubecfg $(name)
+        cat /root/.kube/config > /output-config
+    files:
+        /cmd.sh:
+        /kubeConfig: $(kubeConfig)
+        /root/.aws/config: "[default]\nregion = "$(region)
+    envVars:
+      name:
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
+      kopsStateStore:
