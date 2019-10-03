@@ -1,5 +1,5 @@
-name: github.com/opspec-pkgs/kops.kubeconfig.get
-description: retrieve a kubeconfig for a kubernetes cluster managed by kops
+name: github.com/opspec-pkgs/kops.aws.kubeconfig.get
+description: retrieve a kubeconfig for a kubernetes cluster managed by kops in aws
 inputs:
   name:
     string:
@@ -26,7 +26,7 @@ outputs:
 version: 1.0.0
 run:
   container:
-    image: { ref: 'opspecpkgs/kops.kubeconfig.get:1.0.0' }
+    image: { ref: 'opspecpkgs/kops.aws.kubeconfig.get:1.0.0' }
     cmd:
       - sh
       - -ce

@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/opspec-pkgs/kops.kubeconfig.get.svg?branch=master)](https://travis-ci.org/opspec-pkgs/kops.kubeconfig.get)
+[![Build Status](https://travis-ci.org/opspec-pkgs/kops.aws.kubeconfig.get.svg?branch=master)](https://travis-ci.org/opspec-pkgs/kops.aws.kubeconfig.get)
 
 <img src="icon.svg" alt="icon" height="100px">
 
 # Problem statement
 
-retrieve a kubeconfig for a kubernetes cluster managed by kops
+retrieve a kubeconfig for a kubernetes cluster managed by kops in aws
 
 # Format
 
@@ -15,20 +15,20 @@ the op uses [![opspec 0.1.5](https://img.shields.io/badge/opspec-0.1.5-brightgre
 ## Install
 
 ```shell
-opctl op install github.com/opspec-pkgs/kops.kubeconfig.get#1.0.0
+opctl op install github.com/opspec-pkgs/kops.aws.kubeconfig.get#1.0.0
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/kops.kubeconfig.get#1.0.0
+opctl run github.com/opspec-pkgs/kops.aws.kubeconfig.get#1.0.0
 ```
 
 ## Compose
 
 ```yaml
 op:
-  ref: github.com/opspec-pkgs/kops.kubeconfig.get#1.0.0
+  ref: github.com/opspec-pkgs/kops.aws.kubeconfig.get#1.0.0
   inputs:
     AWS_ACCESS_KEY_ID:
     AWS_SECRET_ACCESS_KEY:
@@ -45,7 +45,7 @@ op:
 join us on
 [![Slack](https://opctl-slackin.herokuapp.com/badge.svg)](https://opctl-slackin.herokuapp.com/)
 or
-[open an issue](https://github.com/opspec-pkgs/kops.kubeconfig.get/issues)
+[open an issue](https://github.com/opspec-pkgs/kops.aws.kubeconfig.get/issues)
 
 # Releases
 
